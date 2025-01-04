@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-export default function Logo() {
+export default function Logo({ className }: { className?: string }) {
   return (
-    <div className="flex items-end lg:space-x-5 xl:space-x-[50]">
+    <div className={`flex items-end lg:space-x-5 xl:space-x-[50] ${className}`}>
       <Link
         className="focus:ring-0 focus:outline-none text-3xl font-bold tracking-tighter"
         href="/"

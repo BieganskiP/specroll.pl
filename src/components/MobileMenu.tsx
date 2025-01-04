@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
 import ContactCTA from "./ContactCTA";
+import { useSpring, animated, config } from "@react-spring/web";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -23,18 +24,44 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     };
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  // Backdrop animation
+  const backdropAnimation = useSpring({
+    opacity: isOpen ? 1 : 0,
+    config: {
+      ...config.gentle,
+      duration: isOpen ? 400 : 200,
+    },
+  });
+
+  // Menu animation
+  const menuAnimation = useSpring({
+    transform: isOpen ? "translateX(0%)" : "translateX(100%)",
+    config: {
+      tension: isOpen ? 170 : 250,
+      friction: isOpen ? 26 : 20,
+      duration: isOpen ? 400 : 200,
+    },
+  });
+
+  if (!isOpen && menuAnimation.transform.get() === "translateX(100%)")
+    return null;
 
   const handleLinkClick = () => {
     onClose();
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-white">
-      <div className="h-full flex flex-col overflow-y-auto">
+    <animated.div
+      style={backdropAnimation}
+      className="fixed inset-0 z-50 bg-white"
+    >
+      <animated.div
+        style={menuAnimation}
+        className="h-full flex flex-col overflow-y-auto bg-white"
+      >
         {/* Header */}
-        <div className="container-center py-4 flex items-center justify-between">
-          <Logo />
+        <div className="container-center py-4 flex items-center justify-between text-black w-full space-between">
+          <Logo className="text-black" />
           <button
             onClick={onClose}
             className="p-2 hover:text-blue-600 transition-colors"
@@ -81,7 +108,12 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               Kontakt
             </Link>
             <div className="pt-4">
-              <ContactCTA href="/kontakt#contact-form">Umów wycenę</ContactCTA>
+              <ContactCTA
+                href="/kontakt#contact-form"
+                onClick={handleLinkClick}
+              >
+                Umów wycenę
+              </ContactCTA>
             </div>
           </div>
         </nav>
@@ -121,7 +153,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </animated.div>
+    </animated.div>
   );
 }
