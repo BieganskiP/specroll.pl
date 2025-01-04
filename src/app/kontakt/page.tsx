@@ -1,14 +1,31 @@
 "use client";
 import { useState, useEffect } from "react";
 
+const topics = [
+  "Rolety zewnętrzne",
+  "Rolety wewnętrzne",
+  "Żaluzje",
+  "Plisy",
+  "Bramy garażowe",
+  "Markizy",
+  "Moskitiery",
+  "Serwis i naprawa",
+  "Inne",
+];
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    subject: "",
+    topic: topics[0],
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
   useEffect(() => {
     // Check if there's a hash in the URL
@@ -20,10 +37,47 @@ export default function ContactPage() {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Backend integration will be added later
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch(
+        "https://specroll-mailer-production.up.railway.app/email/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Wystąpił błąd podczas wysyłania wiadomości");
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: "Wiadomość została wysłana. Skontaktujemy się z Tobą wkrótce.",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        topic: topics[0],
+        message: "",
+      });
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message:
+          "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -208,21 +262,26 @@ export default function ContactPage() {
 
             <div>
               <label
-                htmlFor="subject"
+                htmlFor="topic"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
                 Temat
               </label>
-              <input
-                type="text"
-                id="subject"
-                value={formData.subject}
+              <select
+                id="topic"
+                value={formData.topic}
                 onChange={(e) =>
-                  setFormData({ ...formData, subject: e.target.value })
+                  setFormData({ ...formData, topic: e.target.value })
                 }
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 bg-white"
                 required
-              />
+              >
+                {topics.map((topic) => (
+                  <option key={topic} value={topic}>
+                    {topic}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div>
@@ -244,11 +303,24 @@ export default function ContactPage() {
               ></textarea>
             </div>
 
+            {submitStatus.type && (
+              <div
+                className={`p-4 rounded-md ${
+                  submitStatus.type === "success"
+                    ? "bg-green-50 text-green-800"
+                    : "bg-red-50 text-red-800"
+                }`}
+              >
+                {submitStatus.message}
+              </div>
+            )}
+
             <button
               type="submit"
-              className="w-full bg-blue-300 text-black font-medium py-3 px-6 rounded-full hover:scale-[1.03] active:scale-100 !duration-200 ease-[cubic-bezier(.15,1.14,.88,.98)]"
+              disabled={isSubmitting}
+              className="w-full bg-blue-300 text-black font-medium py-3 px-6 rounded-full hover:scale-[1.03] active:scale-100 !duration-200 ease-[cubic-bezier(.15,1.14,.88,.98)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
             >
-              Wyślij wiadomość
+              {isSubmitting ? "Wysyłanie..." : "Wyślij wiadomość"}
             </button>
           </form>
         </div>
