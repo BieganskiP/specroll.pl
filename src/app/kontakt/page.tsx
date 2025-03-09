@@ -43,19 +43,19 @@ export default function ContactPage() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      const response = await fetch(
-        "https://specroll-mailer-production.up.railway.app/email/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (!response.ok) {
-        throw new Error("Wystąpił błąd podczas wysyłania wiadomości");
+        const errorData = await response.json();
+        throw new Error(
+          errorData.error || "Wystąpił błąd podczas wysyłania wiadomości"
+        );
       }
 
       setSubmitStatus({
@@ -73,7 +73,9 @@ export default function ContactPage() {
       setSubmitStatus({
         type: "error",
         message:
-          "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.",
+          error instanceof Error
+            ? error.message
+            : "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.",
       });
     } finally {
       setIsSubmitting(false);
