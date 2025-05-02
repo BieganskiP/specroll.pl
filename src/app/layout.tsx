@@ -57,9 +57,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-site-verification", // Add your Google Search Console verification code
-  },
+
   alternates: {
     canonical: "https://specroll.pl",
   },

@@ -89,6 +89,12 @@ const process = [
   },
 ];
 
+export const metadata = {
+  alternates: {
+    canonical: "https://specroll.pl/uslugi",
+  },
+};
+
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-white pt-32 pb-16">

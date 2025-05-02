@@ -76,14 +76,14 @@ export default function Footer() {
                   Usługi
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/realizacje"
                   className="hover:text-white transition-colors"
                 >
                   Realizacje
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   href="/kontakt"

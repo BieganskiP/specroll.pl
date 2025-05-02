@@ -192,6 +192,9 @@ export async function generateMetadata({
         },
       ],
     },
+    alternates: {
+      canonical: `https://specroll.pl/produkty/${params.slug}`,
+    },
   };
 }
 

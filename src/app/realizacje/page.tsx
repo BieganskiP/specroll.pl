@@ -1,3 +1,9 @@
+export const metadata = {
+  alternates: {
+    canonical: "https://specroll.pl/realizacje",
+  },
+};
+
 export default function Realizacje() {
   return (
     <div>

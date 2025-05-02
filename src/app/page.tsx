@@ -433,3 +433,9 @@ export default function Home() {
     </main>
   );
 }
+
+export const metadata = {
+  alternates: {
+    canonical: "https://specroll.pl/",
+  },
+};

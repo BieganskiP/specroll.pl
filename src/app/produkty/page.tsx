@@ -47,6 +47,12 @@ const products = [
   },
 ];
 
+export const metadata = {
+  alternates: {
+    canonical: "https://specroll.pl/produkty",
+  },
+};
+
 export default function ProductsPage() {
   return (
     <main className="min-h-screen bg-white pt-32 pb-16">
