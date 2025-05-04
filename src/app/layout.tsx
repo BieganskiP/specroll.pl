@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { PostHogProvider } from "@/app/Providers";
+import Script from "next/script";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -70,6 +72,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pl">
+      <head>
+        <Script
+          src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"
+          strategy="beforeInteractive"
+        />
+        <Script
+          id="usercentrics-cmp"
+          src="https://web.cmp.usercentrics.eu/ui/loader.js"
+          data-settings-id="oDMGZID_1Rq1qc"
+          strategy="afterInteractive"
+          async
+        />
+      </head>
       <body className={inter.className}>
         <PostHogProvider>
           {children}
