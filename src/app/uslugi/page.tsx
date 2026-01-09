@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
 
 const services = [
   {
@@ -89,7 +90,24 @@ const process = [
   },
 ];
 
-export const metadata = {
+export const metadata: Metadata = {
+  title: "Usługi - Montaż, pomiar, serwis | Specroll Wałbrzych",
+  description:
+    "Kompleksowe usługi: bezpłatna wycena, profesjonalny montaż rolet i żaluzji, serwis i naprawa. Doświadczony zespół montażystów. Wałbrzych i okolice.",
+  keywords: [
+    "montaż rolet Wałbrzych",
+    "montaż żaluzji",
+    "serwis rolet",
+    "naprawa żaluzji",
+    "bezpłatna wycena",
+    "pomiar okien",
+    "automatyka rolet",
+  ],
+  openGraph: {
+    title: "Usługi - Montaż, pomiar, serwis | Specroll Wałbrzych",
+    description:
+      "Kompleksowe usługi: bezpłatna wycena, profesjonalny montaż rolet i żaluzji, serwis i naprawa. Doświadczony zespół montażystów.",
+  },
   alternates: {
     canonical: "https://specroll.pl/uslugi",
   },
@@ -97,14 +115,17 @@ export const metadata = {
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-white pt-32 pb-16">
+    <main className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-32 pb-16">
       <div className="container-center">
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl font-medium text-gray-900 mb-4">
-            Nasze Usługi
+          <span className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
+            Profesjonalna obsługa
+          </span>
+          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            Nasze <span className="gradient-text">Usługi</span>
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Oferujemy kompleksowe usługi od pomiaru, przez doradztwo, po montaż
             i serwis. Nasi specjaliści pomogą dobrać najlepsze rozwiązania dla
             Twojego domu.
@@ -113,36 +134,60 @@ export default function ServicesPage() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <div
               key={service.title}
-              className="bg-gray-50 p-8 rounded-lg hover:shadow-lg transition-shadow duration-300"
+              className="feature-card"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="text-blue-600 mb-4">{service.icon}</div>
-              <h3 className="text-xl font-medium text-gray-900 mb-2">
+              <div className="text-blue-600 mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                {service.icon}
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
                 {service.title}
               </h3>
-              <p className="text-gray-600">{service.description}</p>
+              <p className="text-gray-600 leading-relaxed">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
 
         {/* Process Section */}
-        <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-medium text-gray-900 mb-8 text-center">
-              Jak działamy?
-            </h2>
+        <div className="bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 md:p-16 shadow-modern-lg border border-blue-100">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                Jak <span className="gradient-text">działamy</span>?
+              </h2>
+              <p className="text-gray-600">Prosty proces w 4 krokach</p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {process.map((step) => (
-                <div key={step.number} className="relative">
-                  <div className="text-4xl font-bold text-blue-200 mb-4">
-                    {step.number}
+              {process.map((step, index) => (
+                <div
+                  key={step.number}
+                  className="relative group"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
+                  <div className="relative bg-white p-6 rounded-2xl border border-blue-100 hover:border-blue-300 hover:shadow-lg transition-all duration-300 h-full">
+                    <div className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-500 to-blue-300 mb-4">
+                      {step.number}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {step.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-medium text-gray-900 mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600">{step.description}</p>
+                  {index < process.length - 1 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                      <svg className="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -153,8 +198,11 @@ export default function ServicesPage() {
         <div className="mt-16 text-center">
           <Link
             href="/kontakt"
-            className="inline-flex items-center justify-center bg-blue-300 text-black font-medium py-3 px-8 rounded-full hover:scale-[1.03] active:scale-100 !duration-200 ease-[cubic-bezier(.15,1.14,.88,.98)]"
+            className="btn-modern-primary"
           >
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
             Skontaktuj się z nami
           </Link>
         </div>

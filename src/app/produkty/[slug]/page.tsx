@@ -3,6 +3,11 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import ContactCTA from "@/components/ContactCTA";
 import ZoomableImage from "@/components/ZoomableImage";
+import {
+  ProductSchema,
+  BreadcrumbSchema,
+  FAQSchema,
+} from "@/components/StructuredData";
 
 // Product data - in a real app, this would come from a database or CMS
 const productsData = {
@@ -27,6 +32,23 @@ const productsData = {
     ],
     image: "/rolety.jpg",
     gallery: ["/rolety.jpg", "/rolety-2.jpg", "/rolety-3.jpg"],
+    faq: [
+      {
+        question: "Jakie rolety są najlepsze do sypialni?",
+        answer:
+          "Do sypialni najlepiej sprawdzają się rolety materiałowe z tkanin zaciemniających lub rolety dzień/noc, które pozwalają na pełną kontrolę nad ilością światła w pomieszczeniu. Oferujemy również rolety blackout, które zapewniają całkowite zaciemnienie.",
+      },
+      {
+        question: "Ile kosztuje montaż rolet?",
+        answer:
+          "Koszt montażu rolet zależy od typu rolety, rozmiaru okna oraz ilości okien. Oferujemy bezpłatną wycenę po wizji lokalnej. Skontaktuj się z nami, aby umówić się na pomiar.",
+      },
+      {
+        question: "Czy oferujecie automatyczne rolety?",
+        answer:
+          "Tak, oferujemy pełną gamę rolet z możliwością automatyzacji. Rolety mogą być sterowane pilotem, przyciskiem ściennym lub systemem inteligentnego domu. Automatyka dostępna jest dla większości typów rolet.",
+      },
+    ],
   },
   zaluzje: {
     title: "Żaluzje",
@@ -48,6 +70,23 @@ const productsData = {
     ],
     image: "/zaluzje.jpg",
     gallery: ["/zaluzje.jpg", "/zaluzje-2.jpg", "/zaluzje-3.jpg"],
+    faq: [
+      {
+        question: "Czy żaluzje są trudne w czyszczeniu?",
+        answer:
+          "Nasze żaluzje są łatwe w utrzymaniu czystości. Żaluzje aluminiowe można przetrzeć wilgotną ściereczką, a żaluzje drewniane wymagają delikatnego odkurzania i przecierania suchą szmatką.",
+      },
+      {
+        question: "Jaką szerokość lameli wybrać?",
+        answer:
+          "Wybór szerokości lameli zależy od rozmiaru okna i preferencji estetycznych. Wąskie lamele (16-25mm) sprawdzają się w mniejszych oknach, podczas gdy szersze lamele (50mm) lepiej prezentują się w dużych przeszkleniach.",
+      },
+      {
+        question: "Czy żaluzje są odporne na wilgoć?",
+        answer:
+          "Żaluzje aluminiowe są w pełni odporne na wilgoć i doskonale sprawdzają się w łazienkach i kuchniach. Żaluzje drewniane zalecamy do pomieszczeń o standardowej wilgotności.",
+      },
+    ],
   },
   plisy: {
     title: "Plisy",
@@ -69,6 +108,23 @@ const productsData = {
     ],
     image: "/plisy.jpg",
     gallery: ["/plisy.jpg", "/plisy-2.jpg", "/plisy-3.jpg"],
+    faq: [
+      {
+        question: "Czy plisy można montować bez wiercenia?",
+        answer:
+          "Tak, oferujemy specjalne systemy montażu plisów, które nie wymagają wiercenia w ramie okiennej. To idealne rozwiązanie dla osób mieszkających w wynajmowanych mieszkaniach lub chcących zachować okna w nienaruszonym stanie.",
+      },
+      {
+        question: "Czy plisy nadają się do okien dachowych?",
+        answer:
+          "Plisy to idealne rozwiązanie do okien dachowych. Dzięki systemowi prowadzenia w szynach bocznych, tkanina pozostaje napięta niezależnie od kąta nachylenia okna.",
+      },
+      {
+        question: "Jak dobrać stopień zaciemnienia plisy?",
+        answer:
+          "Oferujemy plisy o różnym stopniu zaciemnienia - od transparentnych, przez półprzezroczyste, aż po blackout. Wybór zależy od funkcji pomieszczenia. Do sypialni polecamy tkaniny blackout, a do salonu - półprzezroczyste.",
+      },
+    ],
   },
   "bramy-garazowe": {
     title: "Bramy garażowe",
@@ -90,6 +146,23 @@ const productsData = {
     ],
     image: "/bramy.jpg",
     gallery: ["/bramy.jpg", "/bramy-2.jpg", "/bramy-3.jpg"],
+    faq: [
+      {
+        question: "Jaką bramę garażową wybrać - segmentową czy rolowaną?",
+        answer:
+          "Bramy segmentowe są bardziej uniwersalne i oferują lepszą izolację termiczną. Bramy rolowane są idealne przy ograniczonej przestrzeni w garażu, ponieważ zwijają się kompaktowo pod sufitem.",
+      },
+      {
+        question: "Czy brama garażowa wymaga regularnej konserwacji?",
+        answer:
+          "Tak, zalecamy coroczną konserwację bramy, która obejmuje smarowanie elementów ruchomych, sprawdzenie naprężenia sprężyn i regulację napędów. Oferujemy serwis pogwarancyjny dla wszystkich naszych instalacji.",
+      },
+      {
+        question: "Czy można zautomatyzować starą bramę garażową?",
+        answer:
+          "W większości przypadków tak. Oferujemy montaż napędów do istniejących bram garażowych. Po wizji lokalnej ocenimy stan bramy i zaproponujemy odpowiednie rozwiązanie automatyki.",
+      },
+    ],
   },
   markizy: {
     title: "Markizy",
@@ -111,6 +184,23 @@ const productsData = {
     ],
     image: "/markizy.jpg",
     gallery: ["/markizy.jpg", "/markizy-2.jpg", "/markizy-3.jpg"],
+    faq: [
+      {
+        question: "Czy markizy są odporne na deszcz?",
+        answer:
+          "Nasze markizy są wykonane z wodoodpornych tkanin i skutecznie chronią przed słońcem. Niektóre modele oferują również ograniczoną ochronę przed lekkim deszczem. W przypadku silnych opadów zalecamy zwijanie markizy.",
+      },
+      {
+        question: "Czy markiza wymaga demontażu na zimę?",
+        answer:
+          "Nowoczesne markizy nie wymagają demontażu na zimę. Zalecamy jednak zwinięcie i zabezpieczenie markizy w okresie zimowym. Oferujemy również markizy kaseton, które zapewniają dodatkową ochronę tkaniny.",
+      },
+      {
+        question: "Jak duża markiza będzie odpowiednia na mój taras?",
+        answer:
+          "Rozmiar markizy dobieramy indywidualnie po wizji lokalnej. Markiza powinna być co najmniej tak szeroka jak przeszklenie tarasu i wystawać minimum 1,5-2 metry, aby zapewnić skuteczne zacienianie.",
+      },
+    ],
   },
   moskitiery: {
     title: "Moskitiery",
@@ -132,6 +222,23 @@ const productsData = {
     ],
     image: "/moskitiery.jpg",
     gallery: ["/moskitiery.jpg", "/moskitiery-2.jpg", "/moskitiery-3.jpg"],
+    faq: [
+      {
+        question: "Czy moskitiery ograniczają widoczność?",
+        answer:
+          "Nasze moskitiery wykonane są z wysokiej jakości siatki, która praktycznie nie ogranicza widoczności ani przepływu powietrza. Siatka jest prawie niewidoczna z odległości kilku metrów.",
+      },
+      {
+        question: "Jak często trzeba wymieniać moskitiery?",
+        answer:
+          "Wysokiej jakości moskitiery służą przez wiele lat. Jedynie siatka może wymagać wymiany po 5-7 latach intensywnego użytkowania. Oferujemy możliwość wymiany samej siatki bez konieczności wymiany całej konstrukcji.",
+      },
+      {
+        question: "Czy moskitiery można montować w oknach plastikowych?",
+        answer:
+          "Tak, oferujemy różne systemy montażu dostosowane do wszystkich typów okien - plastikowych, drewnianych i aluminiowych. Moskitiery ramkowe można montować na zawiasach lub magnetycznie.",
+      },
+    ],
   },
   roletki: {
     title: "Roletki",
@@ -153,6 +260,23 @@ const productsData = {
     ],
     image: "/roletki.jpg",
     gallery: ["/roletki.jpg", "/roletki-2.jpg", "/roletki-3.jpg"],
+    faq: [
+      {
+        question: "Jaka jest różnica między roletką a roletą?",
+        answer:
+          "Roletki to zazwyczaj mniejsze, kompaktowe konstrukcje przeznaczone do okien standardowych. Są łatwiejsze w montażu i często tańsze niż pełnowymiarowe rolety. Idealne do mieszkań i mniejszych pomieszczeń.",
+      },
+      {
+        question: "Czy roletki dzień/noc są praktyczne?",
+        answer:
+          "Tak, roletki dzień/noc (duo) to bardzo praktyczne rozwiązanie. Dzięki naprzemiennym pasom tkaniny przezroczystej i zaciemniającej, możesz precyzyjnie kontrolować ilość światła w pomieszczeniu bez konieczności całkowitego zwijania roletki.",
+      },
+      {
+        question: "Czy można prać tkaniny z roletek?",
+        answer:
+          "Większość tkanin można czyścić wilgotną ściereczką. Niektóre roletki mają zdejmowane tkaniny, które można prać w pralce w niskiej temperaturze. Zawsze sprawdź zalecenia producenta dla konkretnej tkaniny.",
+      },
+    ],
   },
 };
 
@@ -204,8 +328,22 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  const breadcrumbItems = [
+    { name: "Strona główna", url: "https://specroll.pl" },
+    { name: "Produkty", url: "https://specroll.pl/produkty" },
+    { name: product.title, url: `https://specroll.pl/produkty/${params.slug}` },
+  ];
+
   return (
     <main className="min-h-screen bg-white pt-32 pb-16">
+      <ProductSchema
+        name={product.title}
+        description={product.description}
+        image={product.image}
+        url={`/produkty/${params.slug}`}
+      />
+      <BreadcrumbSchema items={breadcrumbItems} />
+      {product.faq && <FAQSchema questions={product.faq} />}
       <div className="container-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Image */}
@@ -277,6 +415,28 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             ))}
           </div>
         </div>
+
+        {/* FAQ Section */}
+        {product.faq && product.faq.length > 0 && (
+          <div className="mt-16">
+            <h2 className="text-2xl font-medium text-gray-900 mb-8">
+              Najczęściej zadawane pytania
+            </h2>
+            <div className="space-y-6">
+              {product.faq.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  <h3 className="text-lg font-medium text-gray-900 mb-3">
+                    {item.question}
+                  </h3>
+                  <p className="text-gray-600">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </main>
   );

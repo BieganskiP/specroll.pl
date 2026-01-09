@@ -2,3 +2,155 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  /* Modern Card Styles */
+  .card-modern {
+    @apply relative overflow-hidden rounded-2xl bg-white border border-gray-100 transition-all duration-300;
+    @apply hover:shadow-2xl hover:shadow-gray-200/50 hover:-translate-y-1;
+  }
+  
+  .card-modern::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent opacity-0 transition-opacity duration-300;
+  }
+  
+  .card-modern:hover::before {
+    @apply opacity-100;
+  }
+  
+  /* Modern Button Primary */
+  .btn-modern-primary {
+    @apply relative inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-white;
+    @apply bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600;
+    @apply shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40;
+    @apply transition-all duration-300 hover:scale-[1.02] active:scale-[0.98];
+    @apply overflow-hidden;
+  }
+  
+  .btn-modern-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0;
+    @apply transform -translate-x-full transition-transform duration-700;
+  }
+  
+  .btn-modern-primary:hover::before {
+    @apply translate-x-full;
+  }
+  
+  /* Modern Button Secondary */
+  .btn-modern-secondary {
+    @apply relative inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold;
+    @apply bg-white text-gray-900 border-2 border-gray-200;
+    @apply hover:border-blue-500 hover:text-blue-600;
+    @apply transition-all duration-300 hover:scale-[1.02] active:scale-[0.98];
+    @apply shadow-sm hover:shadow-lg;
+  }
+  
+  /* Section Spacing */
+  .section-padding {
+    @apply py-20 lg:py-32;
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400;
+  }
+  
+  /* Feature Card */
+  .feature-card {
+    @apply relative p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white;
+    @apply border border-gray-100 hover:border-blue-200;
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+  }
+  
+  .feature-card::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-blue-300;
+    @apply transform scale-x-0 transition-transform duration-300 origin-left;
+  }
+  
+  .feature-card:hover::after {
+    @apply scale-x-100;
+  }
+  
+  /* Image Overlay */
+  .image-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent;
+    @apply opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+  }
+  
+  /* Stats Counter */
+  .stat-number {
+    @apply text-5xl lg:text-6xl font-bold;
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-blue-600;
+  }
+}
+
+@layer utilities {
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Scroll Animation Classes */
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .scroll-animate.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
