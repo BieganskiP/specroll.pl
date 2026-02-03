@@ -158,40 +158,47 @@ export default function ProductsPage() {
           </p>
         </header>
 
-        {/* Products Grid */}
+        {/* Products Grid - Mixed Layout */}
         <section aria-labelledby="products-grid-heading">
           <h2 id="products-grid-heading" className="sr-only">
             Lista produktów Specroll
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product, index) => (
+          
+          {/* Featured products - first 3 larger */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            {products.slice(0, 3).map((product, index) => (
               <Link
                 key={product.title}
                 href={product.link}
-                className="card-modern group"
+                className="group relative block rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <article>
-                  <div className="aspect-video relative overflow-hidden">
-                    <Image
-                      src={product.image}
-                      alt={product.alt}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                  <div className="p-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                <article className="aspect-[4/5] relative">
+                  {/* Background Image */}
+                  <Image
+                    src={product.image}
+                    alt={product.alt}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 group-hover:from-black/95 group-hover:via-black/50 transition-all duration-500" />
+                  
+                  {/* Content */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-3 transform group-hover:-translate-y-2 transition-transform duration-500">
                       {product.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed mb-4">
+                    
+                    <p className="text-gray-200 text-sm leading-relaxed mb-4 opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-32 transition-all duration-500 overflow-hidden">
                       {product.description}
                     </p>
-                    <div className="flex items-center text-blue-600 font-semibold group-hover:gap-3 transition-all duration-300">
-                      <span>Dowiedz się więcej</span>
+                    
+                    <div className="flex items-center text-white/90 font-medium text-sm group-hover:text-white transition-colors duration-300">
+                      <span>Zobacz więcej</span>
                       <svg
-                        className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300"
+                        className="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform duration-300"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -202,6 +209,58 @@ export default function ProductsPage() {
                           strokeLinejoin="round"
                           strokeWidth="2"
                           d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-white/30 rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </article>
+              </Link>
+            ))}
+          </div>
+
+          {/* Remaining products - 4 in a row, more compact */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {products.slice(3).map((product, index) => (
+              <Link
+                key={product.title}
+                href={product.link}
+                className="group relative block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500"
+                style={{ animationDelay: `${(index + 3) * 0.1}s` }}
+              >
+                <article className="aspect-square relative">
+                  {/* Background Image */}
+                  <Image
+                    src={product.image}
+                    alt={product.alt}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500" />
+                  
+                  {/* Content */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-4 text-white">
+                    <h3 className="text-lg md:text-xl font-bold mb-1 transform group-hover:-translate-y-1 transition-transform duration-500">
+                      {product.title}
+                    </h3>
+                    
+                    <div className="flex items-center text-white/80 font-medium text-xs group-hover:text-white transition-colors duration-300">
+                      <span>Zobacz więcej</span>
+                      <svg
+                        className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M9 5l7 7-7 7"
                         />
                       </svg>
                     </div>
