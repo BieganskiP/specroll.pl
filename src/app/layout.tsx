@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Specroll Wałbrzych",
   },
   description:
-    "Specroll - profesjonalny montaż rolet, żaluzji, plisów, bram garażowych, markiz i moskitier w Wałbrzychu i okolicach. Bezpłatna wycena i pomiar. Ponad 5 lat doświadczenia, 1000+ zadowolonych klientów. Tel: +48 666 088 953",
+    "Specroll - profesjonalny montaż rolet, żaluzji, plisów, bram garażowych, markiz i moskitier w Wałbrzychu i okolicach. Bezpłatna wycena i pomiar. Ponad 20 lat doświadczenia, 1000+ zadowolonych klientów. Tel: +48 666 088 953",
   metadataBase: new URL("https://specroll.pl"),
   keywords: [
     "rolety Wałbrzych",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title:
       "Specroll | Rolety, żaluzje i bramy garażowe w Wałbrzychu - Profesjonalny montaż",
     description:
-      "Specroll - profesjonalny montaż rolet, żaluzji, plisów, bram garażowych, markiz i moskitier w Wałbrzychu i okolicach. Bezpłatna wycena, ponad 5 lat doświadczenia.",
+      "Specroll - profesjonalny montaż rolet, żaluzji, plisów, bram garażowych, markiz i moskitier w Wałbrzychu i okolicach. Bezpłatna wycena, ponad 20 lat doświadczenia.",
     images: [
       {
         url: "/zaluzje-47.webp",

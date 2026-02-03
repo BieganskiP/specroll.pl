@@ -7,11 +7,11 @@ const COMPANY_DATA = {
   url: "https://specroll.pl",
   logo: "https://specroll.pl/logo.png",
   description:
-    "Specroll to lokalna firma z Wałbrzycha specjalizująca się w sprzedaży i profesjonalnym montażu rolet, żaluzji, bram garażowych, markiz, moskitier i plisów okiennych. Obsługujemy klientów indywidualnych, firmy oraz instytucje w regionie dolnośląskim od ponad 5 lat.",
-  shortDescription:
-    "Profesjonalny montaż rolet, żaluzji i bram garażowych w Wałbrzychu i okolicach.",
-  foundingYear: 2019,
-  taxId: "8863018777",
+    "Specroll to lokalna firma z Wałbrzycha specjalizująca się w sprzedaży i profesjonalnym montażu rolet, żaluzji, bram garażowych, markiz, moskitier i plisów okiennych. Obsługujemy klientów indywidualnych, firmy oraz instytucje w regionie dolnośląskim od ponad 20 lat.",
+    shortDescription:
+      "Profesjonalny montaż rolet, żaluzji i bram garażowych w Wałbrzychu i okolicach.",
+    foundingYear: 2004,
+    taxId: "8863018777",
   vatId: "PL8863018777",
   email: "kontakt@specroll.pl",
   telephone: ["+48 666 088 953", "+48 694 749 815"],

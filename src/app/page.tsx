@@ -72,7 +72,7 @@ const benefits = [
 ];
 
 const stats = [
-  { number: "5+", label: "Lat doświadczenia" },
+  { number: "20+", label: "Lat doświadczenia" },
   { number: "1000+", label: "Zadowolonych klientów" },
   { number: "2000+", label: "Zrealizowanych projektów" },
   { number: "100%", label: "Gwarancji jakości" },
@@ -138,7 +138,7 @@ export default function Home() {
     <main>
       <WebPageSchema
         name="Specroll - Rolety, żaluzje i bramy garażowe w Wałbrzychu"
-        description="Profesjonalny montaż rolet, żaluzji, plisów, bram garażowych, markiz i moskitier w Wałbrzychu i okolicach. Bezpłatna wycena, 5+ lat doświadczenia, 1000+ zadowolonych klientów."
+        description="Profesjonalny montaż rolet, żaluzji, plisów, bram garażowych, markiz i moskitier w Wałbrzychu i okolicach. Bezpłatna wycena, 20+ lat doświadczenia, 1000+ zadowolonych klientów."
         url="/"
         dateModified="2026-02-03"
       />
@@ -591,7 +591,7 @@ export const metadata: Metadata = {
   title:
     "Rolety, żaluzje i bramy garażowe w Wałbrzychu | Specroll - Profesjonalny montaż",
   description:
-    "Specroll - profesjonalny montaż rolet, żaluzji, plisów, bram garażowych, markiz i moskitier w Wałbrzychu i okolicach. Bezpłatna wycena, 5+ lat doświadczenia, ponad 1000 zadowolonych klientów. Zadzwoń: +48 666 088 953",
+    "Specroll - profesjonalny montaż rolet, żaluzji, plisów, bram garażowych, markiz i moskitier w Wałbrzychu i okolicach. Bezpłatna wycena, 20+ lat doświadczenia, ponad 1000 zadowolonych klientów. Zadzwoń: +48 666 088 953",
   keywords: [
     "rolety Wałbrzych",
     "żaluzje Wałbrzych",
@@ -612,7 +612,7 @@ export const metadata: Metadata = {
     title:
       "Rolety, żaluzje i bramy garażowe w Wałbrzychu | Specroll - Profesjonalny montaż",
     description:
-      "Specroll - profesjonalny montaż rolet, żaluzji i bram garażowych w Wałbrzychu i okolicach. Bezpłatna wycena, 5+ lat doświadczenia, ponad 1000 zadowolonych klientów.",
+      "Specroll - profesjonalny montaż rolet, żaluzji i bram garażowych w Wałbrzychu i okolicach. Bezpłatna wycena, 20+ lat doświadczenia, ponad 1000 zadowolonych klientów.",
   },
   alternates: {
     canonical: "https://specroll.pl/",

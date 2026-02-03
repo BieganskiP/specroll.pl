@@ -262,7 +262,7 @@ export default function ContactForm() {
                     <strong>REGON:</strong> 520410221
                   </p>
                   <p className="text-sm text-gray-500 mt-2">
-                    Działamy od 2019 roku
+                    Ponad 20 lat doświadczenia w branży
                   </p>
                 </div>
               </div>

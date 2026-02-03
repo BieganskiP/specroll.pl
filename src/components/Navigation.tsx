@@ -39,6 +39,12 @@ export default function Navigation() {
                   Nasze usługi
                 </Link>
                 <Link
+                  href="/realizacje"
+                  className="hover:scale-[1.03] active:scale-100 !duration-200 ease-[cubic-bezier(.15,1.14,.88,.98)]"
+                >
+                  Realizacje
+                </Link>
+                <Link
                   href="/kontakt"
                   className="hover:scale-[1.03] active:scale-100 !duration-200 ease-[cubic-bezier(.15,1.14,.88,.98)]"
                 >

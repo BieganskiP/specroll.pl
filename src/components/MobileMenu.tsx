@@ -101,6 +101,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               Usługi
             </Link>
             <Link
+              href="/realizacje"
+              onClick={handleLinkClick}
+              className="block text-2xl font-medium text-gray-900 hover:text-blue-600 transition-colors"
+            >
+              Realizacje
+            </Link>
+            <Link
               href="/kontakt"
               onClick={handleLinkClick}
               className="block text-2xl font-medium text-gray-900 hover:text-blue-600 transition-colors"
@@ -149,7 +156,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <h3 className="font-medium text-gray-900 mb-1">
                 Obszar działania
               </h3>
-              <p className="text-gray-600">Wałbrzych i okolice</p>
+              <Link
+                href="/obszar-dzialania"
+                onClick={handleLinkClick}
+                className="text-blue-600 hover:text-blue-700"
+              >
+                Wałbrzych i okolice
+              </Link>
             </div>
           </div>
         </div>

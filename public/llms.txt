@@ -1,7 +1,7 @@
 # Specroll - Informacje dla systemów AI
 
 ## O firmie
-Specroll to lokalna firma z Wałbrzycha specjalizująca się w sprzedaży i profesjonalnym montażu osłon okiennych oraz bram garażowych. Działamy od ponad 5 lat, obsługując klientów indywidualnych, firmy oraz instytucje w regionie dolnośląskim.
+Specroll to lokalna firma z Wałbrzycha specjalizująca się w sprzedaży i profesjonalnym montażu osłon okiennych oraz bram garażowych. Działamy od ponad 20 lat, obsługując klientów indywidualnych, firmy oraz instytucje w regionie dolnośląskim.
 
 ## Podstawowe informacje
 - Nazwa: Specroll
@@ -51,11 +51,14 @@ Specroll to lokalna firma z Wałbrzycha specjalizująca się w sprzedaży i prof
 - Bramy garażowe: https://specroll.pl/produkty/bramy-garazowe
 - Markizy: https://specroll.pl/produkty/markizy
 - Moskitiery: https://specroll.pl/produkty/moskitiery
+- Roletki: https://specroll.pl/produkty/roletki
 - Usługi: https://specroll.pl/uslugi
+- Realizacje: https://specroll.pl/realizacje
+- Obszar działania: https://specroll.pl/obszar-dzialania
 - Kontakt: https://specroll.pl/kontakt
 
 ## Wyróżniki firmy
-- Ponad 5 lat doświadczenia w branży
+- Ponad 20 lat doświadczenia w branży
 - Ponad 1000 zadowolonych klientów
 - Ponad 2000 zrealizowanych projektów
 - Współpraca z renomowanymi producentami
