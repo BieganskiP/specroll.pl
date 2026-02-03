@@ -163,9 +163,20 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
+        <div className="border-t border-gray-800 mt-12 pt-8 text-sm text-center space-y-2">
           <p>
             © {new Date().getFullYear()} Specroll. Wszelkie prawa zastrzeżone.
+          </p>
+          <p className="text-gray-500">
+            Wykonanie:{" "}
+            <a
+              href="https://patrykbieganski.pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              Patryk Biegański
+            </a>
           </p>
         </div>
       </div>
