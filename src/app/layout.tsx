@@ -9,17 +9,19 @@ import Script from "next/script";
 import {
   LocalBusinessSchema,
   WebsiteSchema,
+  OrganizationSchema,
 } from "@/components/StructuredData";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Specroll | Rolety, żaluzje i bramy garażowe w Wałbrzychu",
-    template: "%s | Specroll",
+    default:
+      "Specroll | Rolety, żaluzje i bramy garażowe w Wałbrzychu - Profesjonalny montaż",
+    template: "%s | Specroll Wałbrzych",
   },
   description:
-    "Profesjonalny montaż rolet, żaluzji i bram garażowych w Wałbrzychu i okolicach. Bezpłatna wycena i fachowe doradztwo. ⭐ 5+ lat doświadczenia ⭐ 1000+ zadowolonych klientów",
+    "Specroll - profesjonalny montaż rolet, żaluzji, plisów, bram garażowych, markiz i moskitier w Wałbrzychu i okolicach. Bezpłatna wycena i pomiar. Ponad 5 lat doświadczenia, 1000+ zadowolonych klientów. Tel: +48 666 088 953",
   metadataBase: new URL("https://specroll.pl"),
   keywords: [
     "rolety Wałbrzych",
@@ -34,8 +36,15 @@ export const metadata: Metadata = {
     "żaluzje aluminiowe",
     "Szczawno-Zdrój",
     "Świebodzice",
+    "osłony okienne",
+    "rolety na wymiar",
   ],
-  authors: [{ name: "Specroll" }],
+  authors: [
+    {
+      name: "Specroll",
+      url: "https://specroll.pl",
+    },
+  ],
   creator: "Specroll",
   publisher: "Specroll",
   category: "Construction & Home Improvement",
@@ -52,15 +61,16 @@ export const metadata: Metadata = {
     locale: "pl_PL",
     url: "https://specroll.pl",
     siteName: "Specroll",
-    title: "Specroll | Rolety, żaluzje i bramy garażowe w Wałbrzychu",
+    title:
+      "Specroll | Rolety, żaluzje i bramy garażowe w Wałbrzychu - Profesjonalny montaż",
     description:
-      "Profesjonalny montaż rolet, żaluzji i bram garażowych w Wałbrzychu i okolicach. Bezpłatna wycena i fachowe doradztwo. ⭐ 5+ lat doświadczenia ⭐ 1000+ zadowolonych klientów",
+      "Specroll - profesjonalny montaż rolet, żaluzji, plisów, bram garażowych, markiz i moskitier w Wałbrzychu i okolicach. Bezpłatna wycena, ponad 5 lat doświadczenia.",
     images: [
       {
         url: "/zaluzje-47.webp",
         width: 1200,
         height: 630,
-        alt: "Specroll - Rolety, żaluzje i bramy garażowe w Wałbrzychu",
+        alt: "Specroll - Profesjonalne rolety, żaluzje i bramy garażowe w Wałbrzychu",
         type: "image/webp",
       },
     ],
@@ -71,7 +81,6 @@ export const metadata: Metadata = {
     description:
       "Profesjonalny montaż rolet, żaluzji i bram garażowych w Wałbrzychu i okolicach. Bezpłatna wycena i fachowe doradztwo.",
     images: ["/zaluzje-47.webp"],
-    creator: "@specroll", // Replace with actual Twitter handle if exists
   },
   robots: {
     index: true,
@@ -84,9 +93,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-
   alternates: {
     canonical: "https://specroll.pl",
+  },
+  other: {
+    // Additional meta tags for AI crawlers
+    "ai-content-declaration": "human-written",
   },
 };
 
@@ -98,6 +110,7 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <head>
+        {/* Consent management */}
         <Script
           src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"
           strategy="beforeInteractive"
@@ -109,6 +122,13 @@ export default function RootLayout({
           strategy="afterInteractive"
           async
         />
+        {/* Preconnect to external resources */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className={inter.className}>
         <PostHogProvider>
@@ -116,6 +136,8 @@ export default function RootLayout({
           <Footer />
           <Analytics />
           <SpeedInsights />
+          {/* Structured Data - JSON-LD schemas in body for better performance */}
+          <OrganizationSchema />
           <LocalBusinessSchema url="https://specroll.pl" />
           <WebsiteSchema />
         </PostHogProvider>
