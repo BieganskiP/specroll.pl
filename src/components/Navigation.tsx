@@ -1,10 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import Logo from "./Logo";
 import ContactCTA from "./ContactCTA";
-import MobileMenu from "./MobileMenu";
+
+const MobileMenu = dynamic(() => import("./MobileMenu"), {
+  ssr: false,
+});
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

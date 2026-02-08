@@ -1,11 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import Image from "next/image";
 import ContactCTA from "./ContactCTA";
 import Logo from "./Logo";
-import MobileMenu from "./MobileMenu";
+
+const MobileMenu = dynamic(() => import("./MobileMenu"), {
+  ssr: false,
+});
 
 export default function MainHeader() {
   const [isScrolled, setIsScrolled] = useState(false);

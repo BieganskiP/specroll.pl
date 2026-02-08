@@ -1,9 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Navigation from "./Navigation";
 import HeroContent from "./HeroContent";
-import ProgressSteps from "./ProgressSteps";
+
+const ProgressSteps = dynamic(() => import("./ProgressSteps"), {
+  ssr: false,
+});
 
 export default function Header() {
   const [lineWidth, setLineWidth] = useState(20);
@@ -32,9 +36,9 @@ export default function Header() {
             <Image
               alt="Profesjonalne rolety i żaluzje w Wałbrzychu"
               src="/zaluzje-47.webp"
-              width={1200}
-              height={1000}
-              className="object-cover pointer-events-none w-full h-full"
+              fill
+              sizes="100vw"
+              className="object-cover pointer-events-none"
               priority
             />
           </div>

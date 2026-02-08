@@ -4,7 +4,6 @@ import "@/styles/globals.css";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { PostHogProvider } from "@/app/Providers";
 import Script from "next/script";
 import {
   LocalBusinessSchema,
@@ -110,7 +109,7 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <head>
-        {/* Consent management */}
+        {/* Consent management - autoblocker must load before other scripts for GDPR */}
         <Script
           src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"
           strategy="beforeInteractive"
@@ -119,28 +118,20 @@ export default function RootLayout({
           id="usercentrics-cmp"
           src="https://web.cmp.usercentrics.eu/ui/loader.js"
           data-settings-id="oDMGZID_1Rq1qc"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           async
         />
-        {/* Preconnect to external resources */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+        {/* Note: Google Fonts preconnects removed - next/font/google self-hosts fonts */}
       </head>
       <body className={inter.className}>
-        <PostHogProvider>
-          {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-          {/* Structured Data - JSON-LD schemas in body for better performance */}
-          <OrganizationSchema />
-          <LocalBusinessSchema url="https://specroll.pl" />
-          <WebsiteSchema />
-        </PostHogProvider>
+        {children}
+        <Footer />
+        <Analytics />
+        <SpeedInsights />
+        {/* Structured Data - JSON-LD schemas in body for better performance */}
+        <OrganizationSchema />
+        <LocalBusinessSchema url="https://specroll.pl" />
+        <WebsiteSchema />
       </body>
     </html>
   );
