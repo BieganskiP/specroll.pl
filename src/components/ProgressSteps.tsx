@@ -29,7 +29,7 @@ export default function ProgressSteps({
 
   return (
     <div className="mt-[5.2vh] xs:mt-[46px] lg:mt-[9.13vh] xl:mt-[84px]">
-      <div style={{ opacity: "1", transform: "none" }}>
+      <div>
         <div className="overflow-hidden rounded-full bg-white/10 relative z-20">
           <div
             className="h-px rounded-full bg-blue-200 transition-width duration-1000 ease-in-out"
@@ -44,7 +44,7 @@ export default function ProgressSteps({
             className="flex lg:overflow-hidden lg:inline-block max-lg:w-full max-lg:justify-center snap-start max-lg:flex-none cursor-pointer"
             onMouseEnter={() => setLineWidth(step * 20)}
           >
-            <div style={{ transform: "translateY(0%) translateZ(0px)" }}>
+            <div>
               <div className="flex flex-col gap-3 max-lg:w-full max-lg:items-center">
                 <p
                   className={`text-center lg:text-left text-sm !leading-[21px] font-medium text-grey-400 ${

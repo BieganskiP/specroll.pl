@@ -17,15 +17,7 @@ export default function Navigation() {
     <>
       <div className="absolute inset-x-0 z-50 pt-4 bg-hero">
         <div className="container-center w-full">
-          <div
-            className="inline-block w-full"
-            style={{
-              opacity: 1,
-              transform: "translateY(0%) translateZ(0px)",
-              backdropFilter: "blur(25px)",
-              borderRadius: "100px",
-            }}
-          >
+          <div className="inline-block w-full">
             <nav className="relative overflow-visible visible h-16 border border-white/5 backdrop-blur-[25px] p-4 lg:pl-10 lg:py-3 lg:pr-3 rounded-[100px] bg-white/10 flex items-center space-x-5 xl:space-x-[50px] w-full justify-between">
               <Logo />
 
