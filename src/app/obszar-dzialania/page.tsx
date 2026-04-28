@@ -201,7 +201,7 @@ export const metadata: Metadata = {
 
 export default function ObszarDzialaniaPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-32 pb-16">
+    <main id="main-content" className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-32 pb-16">
       <WebPageSchema
         name="Obszar działania - Specroll Wałbrzych"
         description="Specroll obsługuje Wałbrzych i okolice w promieniu 30 km: Szczawno-Zdrój, Świebodzice, Świdnicę i inne miejscowości."

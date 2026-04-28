@@ -167,6 +167,14 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} Specroll. Wszelkie prawa zastrzeżone.
           </p>
+          <p>
+            <Link
+              href="/polityka-prywatnosci"
+              className="text-gray-400 hover:text-white transition-colors underline-offset-2 hover:underline"
+            >
+              Polityka prywatności
+            </Link>
+          </p>
           <p className="text-gray-500">
             Wykonanie:{" "}
             <a

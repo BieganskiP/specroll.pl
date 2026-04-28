@@ -5,7 +5,7 @@ const COMPANY_DATA = {
   name: "Specroll",
   legalName: "Specroll",
   url: "https://specroll.pl",
-  logo: "https://specroll.pl/logo.png",
+  logo: "https://specroll.pl/icon.svg",
   description:
     "Specroll to lokalna firma z Wałbrzycha specjalizująca się w sprzedaży i profesjonalnym montażu rolet, żaluzji, bram garażowych, markiz, moskitier i plisów okiennych. Obsługujemy klientów indywidualnych, firmy oraz instytucje w regionie dolnośląskim od ponad 20 lat.",
     shortDescription:

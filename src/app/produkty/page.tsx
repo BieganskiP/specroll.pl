@@ -128,7 +128,7 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-32 pb-16">
+    <main id="main-content" className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-32 pb-16">
       <WebPageSchema
         name="Produkty osłon okiennych - Specroll Wałbrzych"
         description="Szeroki wybór osłon okiennych: rolety, żaluzje, plisy, bramy garażowe, markizy i moskitiery. Produkty na wymiar z profesjonalnym montażem."

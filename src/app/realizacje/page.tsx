@@ -142,7 +142,7 @@ export const metadata: Metadata = {
 
 export default function RealizacjePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-32 pb-16">
+    <main id="main-content" className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-32 pb-16">
       <WebPageSchema
         name="Realizacje - Specroll Wałbrzych"
         description="Galeria realizacji firmy Specroll: montaże rolet, żaluzji, bram garażowych, markiz i moskitier w Wałbrzychu i okolicach."

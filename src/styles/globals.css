@@ -6,9 +6,21 @@
   html {
     @apply scroll-smooth;
   }
-  
+
   body {
     @apply antialiased;
+  }
+
+  /* WCAG 2.1 – global focus-visible ring for keyboard navigation */
+  :focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Remove focus outline for mouse users only */
+  :focus:not(:focus-visible) {
+    outline: none;
   }
 }
 

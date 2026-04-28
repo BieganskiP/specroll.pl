@@ -189,7 +189,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-32 pb-16">
+    <main id="main-content" className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-32 pb-16">
       <WebPageSchema
         name="Usługi montażu osłon okiennych - Specroll Wałbrzych"
         description="Kompleksowe usługi: bezpłatna wycena i pomiar, profesjonalny montaż rolet, żaluzji, bram garażowych, serwis i naprawy."

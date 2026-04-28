@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
 import ContactCTA from "./ContactCTA";
@@ -12,6 +12,8 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  const menuRef = useRef<HTMLDivElement>(null);
+
   // Prevent scrolling when menu is open
   useEffect(() => {
     if (isOpen) {
@@ -23,6 +25,40 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
+
+  // Focus trap and Escape key
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (e.key !== "Tab" || !menuRef.current) return;
+
+      const focusable = menuRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
 
   // Backdrop animation
   const backdropAnimation = useSpring({
@@ -54,8 +90,12 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     <animated.div
       style={backdropAnimation}
       className="fixed inset-0 z-50 bg-white"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu nawigacyjne"
     >
       <animated.div
+        ref={menuRef}
         style={menuAnimation}
         className="h-full flex flex-col overflow-y-auto bg-white"
       >

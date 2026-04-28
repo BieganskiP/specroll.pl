@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(sed -i 's/<main className=\"min-h-screen bg-white pt-32 pb-16\">/<main id=\"main-content\" className=\"min-h-screen bg-white pt-32 pb-16\">/g' src/app/kontakt/ContactForm.tsx 'src/app/produkty/[slug]/not-found.tsx' 'src/app/produkty/[slug]/loading.tsx' 'src/app/produkty/[slug]/page.tsx')",
+      "Bash(sed -i 's/<main className=\"min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-32 pb-16\">/<main id=\"main-content\" className=\"min-h-screen bg-gradient-to-b from-white via-gray-50 to-white pt-32 pb-16\">/g' src/app/uslugi/page.tsx src/app/realizacje/page.tsx src/app/obszar-dzialania/page.tsx src/app/produkty/page.tsx)",
+      "Bash(npm run:*)"
+    ]
+  }
+}

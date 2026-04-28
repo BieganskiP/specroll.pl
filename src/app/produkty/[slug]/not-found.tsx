@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-white pt-32 pb-16">
+    <main id="main-content" className="min-h-screen bg-white pt-32 pb-16">
       <div className="container-center text-center">
         <h1 className="text-4xl font-medium text-gray-900 mb-4">
           Nie znaleziono produktu

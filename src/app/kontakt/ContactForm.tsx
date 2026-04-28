@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import posthog from "posthog-js";
 
 const topics = [
   "Rolety zewnętrzne",
@@ -77,6 +78,7 @@ export default function ContactForm() {
         );
       }
 
+      posthog.capture("contact_form_submitted", { topic: formData.topic });
       setSubmitStatus({
         type: "success",
         message: "Wiadomość została wysłana. Skontaktujemy się z Tobą wkrótce.",
@@ -102,7 +104,7 @@ export default function ContactForm() {
   };
 
   return (
-    <main className="min-h-screen bg-white pt-32 pb-16">
+    <main id="main-content" className="min-h-screen bg-white pt-32 pb-16">
       <div className="container-center">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
@@ -147,6 +149,7 @@ export default function ContactForm() {
                 <a
                   href="tel:+48666088953"
                   className="flex items-center text-gray-700 hover:text-blue-600 transition-colors group"
+                  onClick={() => posthog.capture("phone_click", { number: "+48666088953" })}
                 >
                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-blue-200 transition-colors">
                     <svg
@@ -174,6 +177,7 @@ export default function ContactForm() {
                 <a
                   href="tel:+48694749815"
                   className="flex items-center text-gray-700 hover:text-blue-600 transition-colors group"
+                  onClick={() => posthog.capture("phone_click", { number: "+48694749815" })}
                 >
                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-blue-200 transition-colors">
                     <svg
@@ -455,6 +459,8 @@ export default function ContactForm() {
                       : "bg-red-50 text-red-800 border border-red-200"
                   }`}
                   role="alert"
+                  aria-live="polite"
+                  aria-atomic="true"
                 >
                   {submitStatus.message}
                 </div>

@@ -135,7 +135,7 @@ const homepageFaq = [
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content">
       <WebPageSchema
         name="Specroll - Rolety, żaluzje i bramy garażowe w Wałbrzychu"
         description="Profesjonalny montaż rolet, żaluzji, plisów, bram garażowych, markiz i moskitier w Wałbrzychu i okolicach. Bezpłatna wycena, 20+ lat doświadczenia, 1000+ zadowolonych klientów."
@@ -259,6 +259,7 @@ export default function Home() {
                     src={project.image}
                     alt={project.alt}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300"></div>
@@ -588,10 +589,9 @@ export default function Home() {
 }
 
 export const metadata: Metadata = {
-  title:
-    "Rolety, żaluzje i bramy garażowe w Wałbrzychu | Specroll - Profesjonalny montaż",
+  title: "Rolety, żaluzje i bramy garażowe Wałbrzych | Specroll",
   description:
-    "Specroll - profesjonalny montaż rolet, żaluzji, plisów, bram garażowych, markiz i moskitier w Wałbrzychu i okolicach. Bezpłatna wycena, 20+ lat doświadczenia, ponad 1000 zadowolonych klientów. Zadzwoń: +48 666 088 953",
+    "Profesjonalny montaż rolet, żaluzji, plisów, bram garażowych i markiz w Wałbrzychu i okolicach. Bezpłatna wycena. Tel: +48 666 088 953",
   keywords: [
     "rolety Wałbrzych",
     "żaluzje Wałbrzych",
@@ -609,10 +609,9 @@ export const metadata: Metadata = {
     "Świebodzice żaluzje",
   ],
   openGraph: {
-    title:
-      "Rolety, żaluzje i bramy garażowe w Wałbrzychu | Specroll - Profesjonalny montaż",
+    title: "Rolety, żaluzje i bramy garażowe Wałbrzych | Specroll",
     description:
-      "Specroll - profesjonalny montaż rolet, żaluzji i bram garażowych w Wałbrzychu i okolicach. Bezpłatna wycena, 20+ lat doświadczenia, ponad 1000 zadowolonych klientów.",
+      "Profesjonalny montaż rolet, żaluzji, plisów, bram garażowych i markiz w Wałbrzychu i okolicach. Bezpłatna wycena. Tel: +48 666 088 953",
   },
   alternates: {
     canonical: "https://specroll.pl/",

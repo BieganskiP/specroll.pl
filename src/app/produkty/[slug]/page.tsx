@@ -493,7 +493,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   ];
 
   return (
-    <main className="min-h-screen bg-white pt-32 pb-16">
+    <main id="main-content" className="min-h-screen bg-white pt-32 pb-16">
       <WebPageSchema
         name={`${product.title} - Specroll Wałbrzych`}
         description={product.description}

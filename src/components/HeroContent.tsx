@@ -4,45 +4,21 @@ export default function HeroContent() {
   return (
     <div className="text-left flex flex-col">
       <span className="overflow-hidden inline-flex">
-        <h2
-          className="text-grey-secondary font-Poppins inline-flex font-semibold text-[10px] sm:text-xs lg:text-sm !leading-6 uppercase tracking-0.11em"
-          style={{
-            transform: "translateY(0%) translateZ(0px)",
-          }}
-        >
+        <p className="text-grey-secondary font-Poppins inline-flex font-semibold text-[10px] sm:text-xs lg:text-sm !leading-6 uppercase tracking-0.11em">
           Wygoda, Estetyka, bezpieczeństwo
-        </h2>
+        </p>
       </span>
-      <h1 className="sm:max-w-[738px] flex flex-col max-sm:hidden">
+      <h1 className="sm:max-w-[738px] flex flex-col">
         <span className="overflow-hidden inline-flex">
-          <span
-            className="inline-flex font-medium text-[6.667vw] xs:text-3xl md:text-4xl lg:text-[5vh] xl:text-[46px] !leading-normal -tracking-0.04em text-grey-secondary"
-            style={{
-              transform: "translateY(0%) translateZ(0px)",
-            }}
-          >
-            Rolety | Żaluzje | Plisy | Bramy garażowe | Markizy | Moskitiery
-          </span>
-        </span>
-      </h1>
-      <h1 className="sm:hidden flex flex-col mt-5px">
-        <span className="overflow-hidden inline-flex">
-          <span
-            className="inline-flex font-medium text-[6.667vw] xs:text-3xl md:text-4xl lg:text-[5vh] xl:text-[46px] !leading-normal -tracking-0.04em text-grey-secondary"
-            style={{
-              transform: "translateY(0%) translateZ(0px)",
-            }}
-          >
+          <span className="inline-flex font-medium text-[6.667vw] xs:text-3xl md:text-4xl lg:text-[5vh] xl:text-[46px] !leading-normal -tracking-0.04em text-grey-secondary">
             Rolety | Żaluzje | Plisy |
+            <span className="max-sm:hidden">
+              &nbsp;Bramy garażowe | Markizy | Moskitiery
+            </span>
           </span>
         </span>
-        <span className="overflow-hidden inline-flex">
-          <span
-            className="inline-flex font-medium text-[6.667vw] xs:text-3xl md:text-4xl lg:text-[5vh] xl:text-[46px] !leading-normal -tracking-0.04em text-grey-secondary"
-            style={{
-              transform: "translateY(0%) translateZ(0px)",
-            }}
-          >
+        <span className="overflow-hidden inline-flex sm:hidden mt-5px">
+          <span className="inline-flex font-medium text-[6.667vw] xs:text-3xl md:text-4xl lg:text-[5vh] xl:text-[46px] !leading-normal -tracking-0.04em text-grey-secondary">
             Bramy garażowe | Markizy | Moskitiery
           </span>
         </span>
@@ -50,15 +26,10 @@ export default function HeroContent() {
       <div className="flex w-full mt-[5vh] xs:mt-[42px] lg:mt-[5.435vh] xl:mt-50px">
         <div className="grid grid-cols-1 auto-rows-fr sm:flex gap-4 xxs:gap-6 lg:gap-[42px] items-center w-full">
           <div className="overflow-hidden inline-block h-full text-black">
-            <div
-              className="inline-block w-full"
-              style={{
-                transform: "translateY(0%) translateZ(0px)",
-              }}
-            >
+            <div className="inline-block w-full">
               <div className="flex max-sm:w-full max-sm:justify-center">
                 <Link
-                  aria-label="Join Geviti"
+                  aria-label="Umów się na bezpłatną wycenę"
                   className="group relative grid flex-row-reverse place-items-center overflow-hidden gap-6 py-1.5 rounded-full font-medium text-lg leading-6 bg-white text-primary grid-cols-[auto_46px] pl-[42px] pr-1.5 max-sm:w-full"
                   href="/kontakt"
                 >
@@ -108,12 +79,7 @@ export default function HeroContent() {
             </div>
           </div>
           <div className="overflow-hidden inline-block h-full">
-            <div
-              className="flex w-full h-full"
-              style={{
-                transform: "translateY(0%) translateZ(0px)",
-              }}
-            >
+            <div className="flex w-full h-full">
               <Link
                 aria-label="Dowiedz się więcej o naszych usługach"
                 className="group relative grid flex-row-reverse place-items-center overflow-hidden gap-6 py-1.5 rounded-full font-medium text-lg leading-6 font-Poppins bg-white/10 hover:bg-white/20 text-white border border-white/5 backdrop-blur-[25px] grid-cols-[auto_46px] pl-[42px] pr-1.5 max-sm:w-full"

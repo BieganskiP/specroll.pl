@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <main className="min-h-screen bg-white pt-32 pb-16">
+    <main id="main-content" className="min-h-screen bg-white pt-32 pb-16">
       <div className="container-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Image Skeleton */}
