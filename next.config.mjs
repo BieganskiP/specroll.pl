@@ -8,17 +8,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "www.specroll.pl",
-          },
-        ],
-        destination: "https://specroll.pl/:path*",
-        permanent: true,
-      },
-      {
         source: "/favicon.ico",
         destination: "/icon.svg",
         permanent: false,
